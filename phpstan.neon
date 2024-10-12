@@ -1,0 +1,18 @@
+includes:
+    - vendor/spaze/phpstan-disallowed-calls/extension.neon
+
+
+parameters:
+
+    level: max
+
+    paths:
+    - src
+
+    disallowedMethodCalls:
+          -
+              method: 'Doctrine\Persistence\ObjectRepository::findBy()'
+              message: 'to not use magic find*() methods'
+              errorTip: 'add method to interface instead!'
+              allowIn:
+                  - src/Repository/*
